@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 productos = {'bebida' => 850, 'chocolate' => 1200, 'galletas' => 900, 'leche' => 750}
 
 Productos.each { |valor, producto| puts producto }
@@ -27,4 +26,3 @@ puts "\n\n"
 #5 Eliminar el producto 'galletas' del hash.
 productos.delete('galletas')
 productos.each { |producto, valor| puts 'El producto ' + producto + ' cuesta ' + valor.to_s}
->>>>>>> developer
