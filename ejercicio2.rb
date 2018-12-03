@@ -17,6 +17,8 @@ puts ''
 # 4. Convertir el hash en un array y guardarlo en una nueva variable.
 productos1 = productos.to_a
 print productos1
-puts ''
+puts "\n\n"
 
-#5 
+#5 Eliminar el producto 'galletas' del hash.
+productos.delete('galletas')
+productos.each { |producto, valor| puts 'El producto ' + producto + ' cuesta ' + valor.to_s}
