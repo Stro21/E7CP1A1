@@ -4,5 +4,5 @@ productos = {'bebida' => 850, 'chocolate' => 1200, 'galletas' => 900, 'leche' =>
 productos.each { |producto, valor| puts producto }
 
 # Parte 2
-
-producto[2200] = cereal
+productos['cereal'] = 2200
+productos.each { |producto, valor| puts 'El producto ' + producto + ' cuesta ' + valor.to_s}
