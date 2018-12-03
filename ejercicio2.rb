@@ -1,9 +1,5 @@
 productos = {'bebida' => 850, 'chocolate' => 1200, 'galletas' => 900, 'leche' => 750}
 
-Productos.each { |valor, producto| puts producto }
-=======
-productos = {'bebida' => 850, 'chocolate' => 1200, 'galletas' => 900, 'leche' => 750}
-
 # 1. Imprimir todos los productos.
 productos.each { |producto, valor| puts producto }
 puts ''
