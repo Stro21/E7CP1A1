@@ -19,3 +19,12 @@ hash.each {|nombre, edad| puts 'El nombre es ' + nombre.to_s + ' y su edad ' + e
 puts ''
 
 # 2. Crear un método que reciba el hash y devuelva el promedio de las edades del hash pasado como argumento.
+
+def promedio_edad(hash)
+  suma_edad = 0
+  hash.each {|edad, nombre| suma_edad += nombre}
+  suma_edad / hash.length
+end
+
+promedio = promedio_edad(hash)
+puts promedio
