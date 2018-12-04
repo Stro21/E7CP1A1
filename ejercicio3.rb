@@ -20,3 +20,6 @@ h.each {|variable, valor| puts "yeeah" if variable == "z"}
 puts ''
 
 # 5. Invertir el diccionario de forma que los valores sean las llaves y las llaves los valores
+
+invertido = h.invert
+invertido.each {|variable, valor| puts 'valor de variable ' + variable.to_s + ' es ' + valor.to_s}
