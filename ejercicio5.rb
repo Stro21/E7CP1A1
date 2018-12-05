@@ -1,4 +1,6 @@
-meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo']
+# rubocop:disable LineLength
+
+meses = %w[Enero Febrero Marzo Abril Mayo]
 ventas = [2000, 3000, 1000, 5000, 4000]
 
 # 1. Generar un hash que contenga los meses como llave y las ventas como valor:
@@ -15,15 +17,17 @@ def generar_hash(arr1, arr2)
 end
 
 hash = generar_hash(meses, ventas)
-hash.each {|mes, venta| puts 'El mes es ' + mes.to_s + ' y su ventas son ' + venta.to_s}
+hash.each { |mes, venta| puts 'El mes es ' + mes.to_s + ' y su ventas son ' + venta.to_s }
 puts ''
 
 # 2. En base al hash generado:
 # 2.1 Invertir las llaves y los valores del hash.
 
 invertido = hash.invert
-invertido.each {|venta, mes| puts venta.to_s + ' fueron las ventas del mes ' + mes.to_s}
+invertido.each { |venta, mes| puts venta.to_s + ' fueron las ventas del mes ' + mes.to_s }
 puts ''
 # 2.2 Obtener el mes mayor cantidad de ventas (a partir del hash invertido.)
 
-puts invertido.max_by{|k,v| k}
+puts invertido.max_by { |k,_v| k }
+
+# rubocop:enable LineLength
