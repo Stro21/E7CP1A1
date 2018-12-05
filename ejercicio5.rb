@@ -41,8 +41,15 @@ def mayor_ventas(invertido)
   end
   puts 'El mes con mas ventas fue ' + month.to_s + ' y sus ventas fueron ' + sells.to_s
 end
+<<<<<<< HEAD
 
 mayor_ventas(invertido)
+=======
+
+mayor_ventas(invertido)
+
+# puts invertido.max_by { |k, _v| k }
+>>>>>>> developer
 
 # rubocop:enable LineLength
 # rubocop:enable MethodLength
