@@ -3,7 +3,7 @@
 productos = {'bebida' => 850, 'chocolate' => 1200, 'galletas' => 900, 'leche' => 750 }
 
 # 1. Imprimir todos los productos.
-productos.each { |producto| puts producto.to_s }
+productos.each { |producto, valor| puts producto }
 puts ''
 
 # 2. Agregar un producto nuevo llamado cereal.
