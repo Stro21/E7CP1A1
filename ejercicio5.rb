@@ -44,7 +44,5 @@ end
 
 mayor_ventas(invertido)
 
-# puts invertido.max_by { |k, _v| k }
-
 # rubocop:enable LineLength
 # rubocop:enable MethodLength
