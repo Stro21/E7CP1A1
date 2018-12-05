@@ -28,6 +28,6 @@ invertido.each { |venta, mes| puts venta.to_s + ' fueron las ventas del mes ' + 
 puts ''
 # 2.2 Obtener el mes mayor cantidad de ventas (a partir del hash invertido.)
 
-puts invertido.max_by { |k,_v| k }
+puts invertido.max_by { |k, _v| k }
 
 # rubocop:enable LineLength
