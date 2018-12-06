@@ -1,5 +1,6 @@
 # rubocop:disable LineLength
 # rubocop:disable AsciiComments
+# rubocop:disable MethodLength
 
 inventario = { "Notebooks": 4, "PC Escritorio": 6, "Routers": 10, "Impresoras": 6 }
 print inventario
@@ -25,11 +26,22 @@ end
 def item(str)
   str1 = ''
   str.each_char { |chr| str1 += chr unless chr == ',' }
-  str1
+  str1.to_sym
 end
 
 def cantidad(str)
-
+  str1 = ''
+  coma = false
+  i = 0
+  i = str.each_char { |chr| i += 1 unless chr == ',' }
+  str.each_char do |var|
+    if coma
+      str1 += var if var != ' '
+    elsif var == ','
+      coma = true
+    end
+  end
+  str1.to_i
 end
 
 puts 'Ingrese opción siendo números del 1 al 7.'
@@ -46,7 +58,7 @@ while respuesta_correcta(respuesta)
     cant = cantidad(res)
     inventario[item] = cant
   end
-  respuesta = 8
 end
 # rubocop:enable LineLength
 # rubocop:enable AsciiComments
+# rubocop:enable MethodLength
