@@ -53,6 +53,7 @@ def esta(arr, word)
       break
     end
   end
+  esta
 end
 
 def suma_inventario(hash)
@@ -72,6 +73,14 @@ def mayor_stock(hash)
     end
   end
   mayor.to_s
+end
+
+def res_6(hash, sym)
+  if !esta(hash, sym)
+    'Esta el item ' + sym.to_s + '.'
+  else
+    'No esta el item ' + sym.to_s + '.'
+  end
 end
 
 puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
@@ -145,6 +154,16 @@ while respuesta_correcta(respuesta)
   # Si el usuario ingresa 5, podrá ver el ítem que tiene la mayor cantidad de stock.
   elsif respuesta == 5
     puts 'El item que tiene el mayor inventario es ' + mayor_stock(inventario)
+    puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
+    respuesta = gets.chomp.to_i
+    while respuesta_incorrecta(respuesta)
+      puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
+      respuesta = gets.chomp.to_i
+    end
+  elsif respuesta == 6
+    puts 'Ingrese un item para ver si esta en el inventario.'
+    res = gets.chomp.to_sym
+    puts res_6(inventario, res)
     puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
     respuesta = gets.chomp.to_i
     while respuesta_incorrecta(respuesta)
