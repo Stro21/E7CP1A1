@@ -27,6 +27,12 @@ while respuesta_incorrecta(respuesta)
   puts 'Ingrese opción siendo números del 1 al 7.'
   respuesta = gets.chomp.to_i
 end
+while respuesta_correcta
+  if respuesta == 1
+    
+  else
 
+  end
+end
 # rubocop:enable LineLength
 # rubocop:enable AsciiComments
