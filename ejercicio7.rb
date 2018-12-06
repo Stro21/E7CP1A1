@@ -99,6 +99,8 @@ while respuesta_correcta(respuesta)
       puts ''
       res = gets.chomp.to_sym
     end
+    puts 'Ingresar el nuevo nombre del item'
+    res = gets.chomp.to_sym
     puts 'Ingresar a modificar.'
     cant = gets.chomp.to_i
     inventario[res] = cant
