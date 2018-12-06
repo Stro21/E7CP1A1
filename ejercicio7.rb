@@ -57,12 +57,28 @@ while respuesta_correcta(respuesta)
     item = item(res)
     cant = cantidad(res)
     inventario[item] = cant
+    print inventario
+    puts ''
+    puts 'Ingrese opción siendo números del 1 al 7.'
+    respuesta = gets.chomp.to_i
     while respuesta_incorrecta(respuesta)
       puts 'Ingrese opción siendo números del 1 al 7.'
       respuesta = gets.chomp.to_i
     end
   elsif respuesta == 2
-
+    puts 'Escriba el item que quiere eliminar'
+    res = gets.chomp.to_sym
+    inventario.delete(res)
+    print inventario
+    puts ''
+    puts 'Ingrese opción siendo números del 1 al 7.'
+    respuesta = gets.chomp.to_i
+    while respuesta_incorrecta(respuesta)
+      puts 'Ingrese opción siendo números del 1 al 7.'
+      respuesta = gets.chomp.to_i
+    end
+  elsif respuesta == 7
+    break
   end
 end
 # rubocop:enable LineLength
