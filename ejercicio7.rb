@@ -55,6 +55,12 @@ def esta(arr, word)
   end
 end
 
+def suma_inventario(hash)
+  suma = 0
+  hash.each { |_key, value| suma += value }
+  suma.to_s
+end
+
 puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
 respuesta = gets.chomp.to_i
 while respuesta_incorrecta(respuesta)
@@ -106,6 +112,14 @@ while respuesta_correcta(respuesta)
     inventario[res] = cant
     print inventario
     puts ''
+    puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
+    respuesta = gets.chomp.to_i
+    while respuesta_incorrecta(respuesta)
+      puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
+      respuesta = gets.chomp.to_i
+    end
+  elsif respuesta == 4
+    puts 'El total del inventario es ' + suma_inventario(inventario)
     puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
     respuesta = gets.chomp.to_i
     while respuesta_incorrecta(respuesta)
