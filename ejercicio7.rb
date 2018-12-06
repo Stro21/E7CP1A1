@@ -2,7 +2,8 @@
 # rubocop:disable AsciiComments
 
 inventario = { "Notebooks": 4, "PC Escritorio": 6, "Routers": 10, "Impresoras": 6 }
-
+print inventario
+puts ''
 # Crear un menú de 4 opciones, es decir, el usuario puede ingresar 1 2 3 o 4 y según eso el programa realizará distintas funciones.
 # Si el usuario ingresa 1, podrá agregar un item y su stock en un solo string y agregarlo al hash. Para separar el nombre del stock el usuario debe utilizar una coma.
 #   Ejemplo del input: "Pendrives, 100"
@@ -21,19 +22,31 @@ def respuesta_incorrecta(respuesta)
   respuesta < 1 && respuesta > 7
 end
 
+def item(str)
+  str1 = ''
+  str.each_char { |chr| str1 += chr unless chr == ',' }
+  str1
+end
+
+def cantidad(str)
+
+end
+
 puts 'Ingrese opción siendo números del 1 al 7.'
 respuesta = gets.chomp.to_i
 while respuesta_incorrecta(respuesta)
   puts 'Ingrese opción siendo números del 1 al 7.'
   respuesta = gets.chomp.to_i
 end
-while respuesta_correcta
+while respuesta_correcta(respuesta)
   if respuesta == 1
     puts 'Ingresar nuevo item en un solo string como "Pendrives, 100".'
     res = gets.chomp.to_s
-  else
-
+    item = item(res)
+    cant = cantidad(res)
+    inventario[item] = cant
   end
+  respuesta = 8
 end
 # rubocop:enable LineLength
 # rubocop:enable AsciiComments
