@@ -83,12 +83,17 @@ def res_6(hash, sym)
   end
 end
 
-puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
-respuesta = gets.chomp.to_i
-while respuesta_incorrecta(respuesta)
+def ingresar_respuesta
   puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
   respuesta = gets.chomp.to_i
+  while respuesta_incorrecta(respuesta)
+    puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
+    respuesta = gets.chomp.to_i
+  end
+  respuesta
 end
+
+respuesta = ingresar_respuesta
 while respuesta_correcta(respuesta)
   # Si el usuario ingresa 1, podrá agregar un item y su stock en un solo string y agregarlo al hash.
   if respuesta == 1
@@ -99,12 +104,7 @@ while respuesta_correcta(respuesta)
     inventario[item] = cant
     print inventario
     puts ''
-    puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
-    respuesta = gets.chomp.to_i
-    while respuesta_incorrecta(respuesta)
-      puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
-      respuesta = gets.chomp.to_i
-    end
+    respuesta = ingresar_respuesta
   # Si el usuario ingresa 2, podrá eliminar un item.
   elsif respuesta == 2
     puts 'Escriba el item que quiere eliminar'
@@ -112,12 +112,7 @@ while respuesta_correcta(respuesta)
     inventario.delete(res)
     print inventario
     puts ''
-    puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
-    respuesta = gets.chomp.to_i
-    while respuesta_incorrecta(respuesta)
-      puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
-      respuesta = gets.chomp.to_i
-    end
+    respuesta = ingresar_respuesta
   # Si el usuario ingresa 3, puede actualizar la información almacenada (item y stock).
   elsif respuesta == 3
     puts 'Ingresar item a modificar'
@@ -137,39 +132,19 @@ while respuesta_correcta(respuesta)
     inventario[res] = cant
     print inventario
     puts ''
-    puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
-    respuesta = gets.chomp.to_i
-    while respuesta_incorrecta(respuesta)
-      puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
-      respuesta = gets.chomp.to_i
-    end
+    respuesta = ingresar_respuesta
   elsif respuesta == 4
     puts 'El total del inventario es ' + suma_inventario(inventario)
-    puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
-    respuesta = gets.chomp.to_i
-    while respuesta_incorrecta(respuesta)
-      puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
-      respuesta = gets.chomp.to_i
-    end
+    respuesta = ingresar_respuesta
   # Si el usuario ingresa 5, podrá ver el ítem que tiene la mayor cantidad de stock.
   elsif respuesta == 5
     puts 'El item que tiene el mayor inventario es ' + mayor_stock(inventario)
-    puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
-    respuesta = gets.chomp.to_i
-    while respuesta_incorrecta(respuesta)
-      puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
-      respuesta = gets.chomp.to_i
-    end
+    respuesta = ingresar_respuesta
   elsif respuesta == 6
     puts 'Ingrese un item para ver si esta en el inventario.'
     res = gets.chomp.to_sym
     puts res_6(inventario, res)
-    puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
-    respuesta = gets.chomp.to_i
-    while respuesta_incorrecta(respuesta)
-      puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
-      respuesta = gets.chomp.to_i
-    end
+    respuesta = ingresar_respuesta
   elsif respuesta == 7
     break
   end
