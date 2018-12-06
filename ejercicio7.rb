@@ -13,5 +13,7 @@ inventario = { "Notebooks": 4, "PC Escritorio": 6, "Routers": 10, "Impresoras": 
 # Si el usuario ingresa 6 podrá ingresar y preguntarle al sistema si un item existe en el inventario o no. Por ejemplo, el usuario ingresará "Notebooks" y el programa responderá "Sí".
 # El programa debe repertirse hasta que el usuario ingrese 7 (salir).
 
+respuesta = gets.chomp
+
 # rubocop:enable LineLength
 # rubocop:enable AsciiComments
