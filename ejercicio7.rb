@@ -13,7 +13,20 @@ inventario = { "Notebooks": 4, "PC Escritorio": 6, "Routers": 10, "Impresoras": 
 # Si el usuario ingresa 6 podrá ingresar y preguntarle al sistema si un item existe en el inventario o no. Por ejemplo, el usuario ingresará "Notebooks" y el programa responderá "Sí".
 # El programa debe repertirse hasta que el usuario ingrese 7 (salir).
 
-respuesta = gets.chomp
+def respuesta_correcta(respuesta)
+  respuesta >= 1 && respuesta <= 7
+end
+
+def respuesta_incorrecta(respuesta)
+  respuesta < 1 && respuesta > 7
+end
+
+puts 'Ingrese opción siendo números del 1 al 7.'
+respuesta = gets.chomp.to_i
+while respuesta_incorrecta(respuesta)
+  puts 'Ingrese opción siendo números del 1 al 7.'
+  respuesta = gets.chomp.to_i
+end
 
 # rubocop:enable LineLength
 # rubocop:enable AsciiComments
