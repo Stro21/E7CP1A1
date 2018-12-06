@@ -61,6 +61,19 @@ def suma_inventario(hash)
   suma.to_s
 end
 
+def mayor_stock(hash)
+  llave = hash.keys
+  mayor = llave[0]
+  valor = hash[llave[0]]
+  hash.each do |key, val|
+    if valor < val
+      mayor = key
+      valor = val
+    end
+  end
+  mayor.to_s
+end
+
 puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
 respuesta = gets.chomp.to_i
 while respuesta_incorrecta(respuesta)
@@ -68,6 +81,7 @@ while respuesta_incorrecta(respuesta)
   respuesta = gets.chomp.to_i
 end
 while respuesta_correcta(respuesta)
+  # Si el usuario ingresa 1, podrá agregar un item y su stock en un solo string y agregarlo al hash.
   if respuesta == 1
     puts 'Ingresar nuevo item en un solo string como "Pendrives, 100".'
     res = gets.chomp.to_s
@@ -82,6 +96,7 @@ while respuesta_correcta(respuesta)
       puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
       respuesta = gets.chomp.to_i
     end
+  # Si el usuario ingresa 2, podrá eliminar un item.
   elsif respuesta == 2
     puts 'Escriba el item que quiere eliminar'
     res = gets.chomp.to_sym
@@ -94,6 +109,7 @@ while respuesta_correcta(respuesta)
       puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
       respuesta = gets.chomp.to_i
     end
+  # Si el usuario ingresa 3, puede actualizar la información almacenada (item y stock).
   elsif respuesta == 3
     puts 'Ingresar item a modificar'
     print inventario
@@ -120,6 +136,15 @@ while respuesta_correcta(respuesta)
     end
   elsif respuesta == 4
     puts 'El total del inventario es ' + suma_inventario(inventario)
+    puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
+    respuesta = gets.chomp.to_i
+    while respuesta_incorrecta(respuesta)
+      puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
+      respuesta = gets.chomp.to_i
+    end
+  # Si el usuario ingresa 5, podrá ver el ítem que tiene la mayor cantidad de stock.
+  elsif respuesta == 5
+    puts 'El item que tiene el mayor inventario es ' + mayor_stock(inventario)
     puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
     respuesta = gets.chomp.to_i
     while respuesta_incorrecta(respuesta)
