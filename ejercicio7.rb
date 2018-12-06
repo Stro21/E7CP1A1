@@ -29,7 +29,8 @@ while respuesta_incorrecta(respuesta)
 end
 while respuesta_correcta
   if respuesta == 1
-    
+    puts 'Ingresar nuevo item en un solo string como "Pendrives, 100".'
+    res = gets.chomp.to_s
   else
 
   end
