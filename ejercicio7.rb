@@ -1,6 +1,7 @@
 # rubocop:disable LineLength
 # rubocop:disable AsciiComments
 # rubocop:disable MethodLength
+# rubocop:disable NegatedWhile
 
 inventario = { "Notebooks": 4, "PC Escritorio": 6, "Routers": 10, "Impresoras": 6 }
 print inventario
@@ -44,10 +45,20 @@ def cantidad(str)
   str1.to_i
 end
 
-puts 'Ingrese opción siendo números del 1 al 7.'
+def esta(arr, word)
+  esta = false
+  arr.each do |str|
+    if str == word
+      esta = true
+      break
+    end
+  end
+end
+
+puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
 respuesta = gets.chomp.to_i
 while respuesta_incorrecta(respuesta)
-  puts 'Ingrese opción siendo números del 1 al 7.'
+  puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
   respuesta = gets.chomp.to_i
 end
 while respuesta_correcta(respuesta)
@@ -59,10 +70,10 @@ while respuesta_correcta(respuesta)
     inventario[item] = cant
     print inventario
     puts ''
-    puts 'Ingrese opción siendo números del 1 al 7.'
+    puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
     respuesta = gets.chomp.to_i
     while respuesta_incorrecta(respuesta)
-      puts 'Ingrese opción siendo números del 1 al 7.'
+      puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
       respuesta = gets.chomp.to_i
     end
   elsif respuesta == 2
@@ -71,10 +82,32 @@ while respuesta_correcta(respuesta)
     inventario.delete(res)
     print inventario
     puts ''
-    puts 'Ingrese opción siendo números del 1 al 7.'
+    puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
     respuesta = gets.chomp.to_i
     while respuesta_incorrecta(respuesta)
-      puts 'Ingrese opción siendo números del 1 al 7.'
+      puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
+      respuesta = gets.chomp.to_i
+    end
+  elsif respuesta == 3
+    puts 'Ingresar item a modificar'
+    print inventario
+    puts ''
+    res = gets.chomp.to_sym
+    while !esta(inventario, res)
+      puts 'Ingresar item a modificar'
+      print inventario
+      puts ''
+      res = gets.chomp.to_sym
+    end
+    puts 'Ingresar a modificar.'
+    cant = gets.chomp.to_i
+    inventario[res] = cant
+    print inventario
+    puts ''
+    puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
+    respuesta = gets.chomp.to_i
+    while respuesta_incorrecta(respuesta)
+      puts 'Ingrese opción siendo números del 1 al 7 (el 7 es para salir).'
       respuesta = gets.chomp.to_i
     end
   elsif respuesta == 7
@@ -84,3 +117,4 @@ end
 # rubocop:enable LineLength
 # rubocop:enable AsciiComments
 # rubocop:enable MethodLength
+# rubocop:enable NegatedWhile
