@@ -57,6 +57,12 @@ while respuesta_correcta(respuesta)
     item = item(res)
     cant = cantidad(res)
     inventario[item] = cant
+    while respuesta_incorrecta(respuesta)
+      puts 'Ingrese opción siendo números del 1 al 7.'
+      respuesta = gets.chomp.to_i
+    end
+  elsif respuesta == 2
+
   end
 end
 # rubocop:enable LineLength
